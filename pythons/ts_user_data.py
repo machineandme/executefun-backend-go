@@ -25,6 +25,8 @@ class Request:
 
 def handler(data: StringAnyValueMap):
     r = Request(data)
+    if r.query.get("time"):
+        r.user_data["time"] = str(time.time())
     return r.resp({
         "message": "hello",
         "echo": {

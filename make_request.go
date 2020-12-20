@@ -84,6 +84,8 @@ func processHeaders(conf HandlerConfig, request *http.Request, someDict *py3.PyO
 				py3.PyUnicode_FromString("user_data"),
 				mapAsPyDict(userData),
 			)
+		} else {
+			panic("Wrong formatted authorization header")
 		}
 	} else {
 		someDict.SetItem(

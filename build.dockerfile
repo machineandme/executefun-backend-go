@@ -9,6 +9,6 @@ COPY go.sum .
 RUN go mod download
 COPY . .
 RUN go test -v -bench=. .
-#RUN go build -o /dev/null -gcflags="-m" .
+RUN go build -o /dev/null -gcflags="-m" .
 RUN go build -o server -gcflags="-c=16" .
 CMD ./server

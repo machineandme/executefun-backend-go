@@ -1,33 +1,12 @@
 package main
 
 import (
-	py3 "github.com/DataDog/go-python3"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"testing"
 	"time"
 )
-
-func TestPythonRunning(t *testing.T) {
-	pySetup()
-	py3.PyRun_SimpleString("import sys\nsys.testA = True")
-	if py3.PySys_GetObject("testA") != py3.Py_True {
-		t.Error("Cannot set system values.")
-	}
-	pyStop()
-}
-
-func TestJWT(t *testing.T) {
-	got, err := makeToken(map[string]string{"hello": "world"})
-	if err != nil {
-		t.Error(err)
-	}
-	expect := "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyRGF0YSI6eyJoZWxsbyI6IndvcmxkIn19.Zj7L47bBHxTkASnNwvKyuKKRmqABqN7cQt-V_Cs1Jfk_Gx_a-HzwKRAvf7WLNxbxl3uWR5rs6iXn5GLXLuf1tJ54wwDcxH8tqwveWsAmWf-8aXfqkqEthp8-xd5u8d6cJCeadxDDkBnrO5HAbZzQScVh5gZOxvTkBsTZObtFql4"
-	if got != expect {
-		t.Errorf("Got %v, expected %v.", got, expect)
-	}
-}
 
 func TestServer(t *testing.T) {
 	pySetup()

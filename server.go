@@ -8,6 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 )
+
 func pyStop() {
 	py3.Py_Finalize()
 }
