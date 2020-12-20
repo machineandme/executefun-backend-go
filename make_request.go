@@ -30,6 +30,9 @@ var BoringHeaders = []string{
 	"Accept-Encoding",
 	"Accept-Language",
 
+	"Content-Type",
+	"Content-Length",
+
 	"Upgrade-Insecure-Requests",
 	"Vary",
 	"Dnt",
